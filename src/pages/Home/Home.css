@@ -1,0 +1,10 @@
+.Leagues {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.League {
+    cursor: pointer;
+    color: blue;
+}
