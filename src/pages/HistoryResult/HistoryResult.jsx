@@ -1,6 +1,7 @@
-import {useContext, useEffect, useState} from "react";
+import {useCallback, useContext, useEffect, useState} from "react";
 import { getLeagueHistoryByIdAndRound } from "../../services/api.js";
 import { LeagueContext } from "../../components/LeagueContext.jsx";
+import "./HistoryResult.css";
 
 export const HistoryResultPage = () => {
     const { currentLeague } = useContext(LeagueContext);
@@ -10,7 +11,7 @@ export const HistoryResultPage = () => {
     const [leagueRoundHistory, setLeagueRoundHistory] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const handleSearch = async () => {
+    const handleSearch = useCallback(async () => {
         if (!currentLeague || currentLeague === -1) {
             alert("Please select a league first");
             return;
@@ -42,14 +43,14 @@ export const HistoryResultPage = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [currentLeague, startRound, endRound]);
 
     useEffect(() => {
         if (!currentLeague || currentLeague === -1) {
             return;
         }
         handleSearch();
-    }, [currentLeague]);
+    }, [currentLeague, handleSearch]);
 
     const getScore = (goals, isHome) => {
         if (!goals) return 0;
@@ -57,7 +58,8 @@ export const HistoryResultPage = () => {
     };
 
     return (
-        <div className="HistoryResult">
+        <div className="HistoryResult page">
+            <h2>League Round History</h2>
             {currentLeague > 0 ? (
                 <div>
                     <div className="filters">

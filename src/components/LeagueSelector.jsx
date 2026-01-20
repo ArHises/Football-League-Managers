@@ -14,7 +14,6 @@ export const LeagueSelector = () => {
                         className={`League ${league.id === currentLeague ? 'active' : ''}`}
                         key={league.id}
                         onClick={() => setCurrentLeague(league.id)}
-                        style={{ cursor: 'pointer', margin: '0 10px' }} // Optional basic styling
                     >
                         {league.name}
                     </span>

@@ -1,16 +1,58 @@
+/* Home page styling aligned with Statistic theme */
+
 .Leagues {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .League {
     cursor: pointer;
-    color: blue;
+    color: var(--primary);
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    user-select: none;
+}
+
+.League:hover {
+    background: rgba(24, 119, 242, 0.08);
+    text-decoration: none;
+}
+
+.League.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.League:focus-visible {
+    outline: 3px solid rgba(24, 119, 242, 0.35);
+    outline-offset: 2px;
 }
 
 .Team {
     padding: 10px;
+}
+
+.TableRow,
+.PlayerList-Row,
+.HistoryList-Row {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.TableRow:hover,
+.PlayerList-Row:hover,
+.HistoryList-Row:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
 }
 
 .TableRow {
@@ -18,8 +60,8 @@
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
-
-    border: 1px solid lightgray;
+    padding: 12px;
+    margin: 10px 0;
 }
 
 .Information-Table {
@@ -34,16 +76,14 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-
-    border: 1px solid lightgray;
+    padding: 12px;
+    margin: 10px 0;
 }
 
 .HistoryList-Row {
     display: flex;
     justify-content: center;
     align-items: center;
-
-
-    padding: 5px;
-    border: 1px solid lightgray;
+    padding: 12px;
+    margin: 10px 0;
 }

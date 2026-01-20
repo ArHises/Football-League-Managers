@@ -1,6 +1,7 @@
 import {useContext, useEffect, useState} from "react";
 import {getLeagueHistoryById} from "../../services/api.js";
 import {LeagueContext} from "../../components/LeagueContext.jsx";
+import "./TopKickers.css";
 
 const getPlayerGoalCounts = (matches) => {
     const stats = {};
@@ -33,7 +34,6 @@ export const TopKickers = () => {
 
     const { currentLeague } = useContext(LeagueContext);
     const [kickers, setKickers] = useState({});
-    const [matches, setMatches] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -44,12 +44,9 @@ export const TopKickers = () => {
             setLoading(true);
             const response = await getLeagueHistoryById(currentLeague);
             if (response && response.status === 200) {
-                setMatches(response.data);
                 console.log(response.data);
-
                 const topKickers = getPlayerGoalCounts(response.data);
                 console.log(topKickers);
-
                 setKickers(topKickers);
             }
             setLoading(false);
@@ -64,12 +61,16 @@ export const TopKickers = () => {
     };
 
     return (
-        <div className="TopKickers">
+        <div className="TopKickers page">
+            <h2>Top Kickers</h2>
             {
                 (currentLeague !== null && currentLeague !== -1 && !loading) && (
                     getTopThreeScorers(kickers).map((kicker) => (
                         <div className="Kicker" key={kicker.id}>
-                            <p> {kicker.firstName} {kicker.lastName} {kicker.scores}</p>
+                            <p>
+                                <span>{kicker.firstName} {kicker.lastName}</span>
+                                <strong>{kicker.scores}</strong>
+                            </p>
                         </div>
                     ))
                 )

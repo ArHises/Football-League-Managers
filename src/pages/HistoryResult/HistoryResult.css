@@ -1,0 +1,53 @@
+/* HistoryResult page styling aligned with Statistic theme */
+
+.HistoryResult {
+    background-color: var(--bg);
+    padding: 20px;
+    border-radius: var(--radius);
+    max-width: 900px;
+    margin: 0 auto;
+    color: var(--text);
+}
+
+.HistoryResult h3 {
+    margin: 0;
+    color: var(--muted);
+}
+
+.HistoryResult .filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.HistoryResult .filters input {
+    flex: 0 0 160px;
+}
+
+.HistoryResult .results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Reuse existing class used in JSX */
+.HistoryResult .HistoryList-Row {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.HistoryResult .HistoryList-Row:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.HistoryResult strong {
+    color: var(--primary);
+}
+
