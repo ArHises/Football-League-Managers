@@ -8,3 +8,42 @@
     cursor: pointer;
     color: blue;
 }
+
+.Team {
+    padding: 10px;
+}
+
+.TableRow {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+
+    border: 1px solid lightgray;
+}
+
+.Information-Table {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.PlayerList-Row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border: 1px solid lightgray;
+}
+
+.HistoryList-Row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    padding: 5px;
+    border: 1px solid lightgray;
+}

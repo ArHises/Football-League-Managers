@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {getLeagueById} from "../services/api.js";
 import {PlayerList} from "./PlayerList.jsx";
+import {HistoryList} from "./HistoryList.jsx";
 
 export const Table = ({leagueId}) => {
 
@@ -39,11 +40,12 @@ export const Table = ({leagueId}) => {
                             {team.name}
                         </div>
                     </div>
-                    <div>
-                        {selectedTeamId === team.id && (
+                    {selectedTeamId === team.id && (
+                        <div className="Information-Table">
                             <PlayerList leagueId={leagueId} teamId={team.id} teamName={team.name} />
-                        )}
-                    </div>
+                            <HistoryList leagueId={leagueId} teamId={team.id} />
+                        </div>
+                    )}
                 </div>
             ))}
         </section>

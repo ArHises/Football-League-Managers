@@ -26,7 +26,7 @@ export const PlayerList = ({leagueId, teamId , teamName}) => {
               {/*<h4>Squad for Team {teamName}:</h4>*/}
               {players.length > 0 ? (
                   players.map((player) => (
-                  <div key={player.id} >{player.firstName} {player.lastName}</div>
+                  <div className={"PlayerList-Row"} key={player.id} >{player.firstName} {player.lastName}</div>
               ))) : (
                   <p>No players found or loading...</p>
               )}
