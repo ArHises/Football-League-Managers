@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {getLeagueSquadByIdAndTeamId} from "../services/api.js";
 
-export const PlayerList = ({leagueId, teamId , teamName}) => {
+export const PlayerList = ({leagueId, teamId}) => {
 
     const [players, setPlayers] = useState([]);
 
@@ -23,7 +23,7 @@ export const PlayerList = ({leagueId, teamId , teamName}) => {
   return (
       <>
           <div className={"PlayerList"}>
-              {/*<h4>Squad for Team {teamName}:</h4>*/}
+              <h4>Squad:</h4>
               {players.length > 0 ? (
                   players.map((player) => (
                   <div className={"PlayerList-Row"} key={player.id} >{player.firstName} {player.lastName}</div>

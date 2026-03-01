@@ -42,7 +42,7 @@ export const Table = ({leagueId}) => {
                     </div>
                     {selectedTeamId === team.id && (
                         <div className="Information-Table">
-                            <PlayerList leagueId={leagueId} teamId={team.id} teamName={team.name} />
+                            <PlayerList leagueId={leagueId} teamId={team.id} />
                             <HistoryList leagueId={leagueId} teamId={team.id} />
                         </div>
                     )}

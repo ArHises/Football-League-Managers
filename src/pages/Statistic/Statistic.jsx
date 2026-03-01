@@ -98,7 +98,6 @@ export const Statistic = () => {
             {loading ? (
                 <p className="loading-text">Loading...</p>
             ) : (
-                // Added "stats-container" class here for the Grid layout
                 <div className="stats-container">
 
                     {/* 1. Halves Comparison */}

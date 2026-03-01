@@ -1,14 +1,12 @@
-// LeagueSelector.js
 import { useContext } from "react";
-import { LeagueContext } from "./LeagueContext"; // Adjust import path as needed
+import { LeagueContext } from "./LeagueContext";
 
 export const LeagueSelector = () => {
-    // Access the state from the Context
     const { leagues, setCurrentLeague, currentLeague } = useContext(LeagueContext);
 
     return (
-        <div className="Leagues">
             <section className="Leagues">
+                <h3 className="Leagues-header">Leagues: </h3>
                 {leagues.map((league) => (
                     <span
                         className={`League ${league.id === currentLeague ? 'active' : ''}`}
@@ -19,6 +17,5 @@ export const LeagueSelector = () => {
                     </span>
                 ))}
             </section>
-        </div>
     );
 };

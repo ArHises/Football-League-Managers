@@ -38,3 +38,4 @@ export const getLeagueHistoryByIdAndTeam = (leagueId, teamId) => requestWithCach
 export const clearCache = () => {
     CACHE.clear();
 };
+

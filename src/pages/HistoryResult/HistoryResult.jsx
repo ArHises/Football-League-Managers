@@ -1,6 +1,7 @@
 import {useCallback, useContext, useEffect, useState} from "react";
 import { getLeagueHistoryByIdAndRound } from "../../services/api.js";
 import { LeagueContext } from "../../components/LeagueContext.jsx";
+import { HistoryList } from "../../components/HistoryList.jsx";
 import "./HistoryResult.css";
 
 export const HistoryResultPage = () => {
@@ -31,9 +32,7 @@ export const HistoryResultPage = () => {
                 const response = await getLeagueHistoryByIdAndRound(currentLeague, i);
                 if (response.status === 200 && response.data.length !== 0) {
                     allMatches.push(...response.data);
-                    console.log(response.data);
-                }
-                else {
+                } else {
                     break;
                 }
             }
@@ -51,11 +50,6 @@ export const HistoryResultPage = () => {
         }
         handleSearch();
     }, [currentLeague, handleSearch]);
-
-    const getScore = (goals, isHome) => {
-        if (!goals) return 0;
-        return goals.filter(goal => goal.home === isHome).length;
-    };
 
     return (
         <div className="HistoryResult page">
@@ -83,19 +77,11 @@ export const HistoryResultPage = () => {
                     </div>
 
                     <div className="results-list">
-                        {leagueRoundHistory.map((match) => (
-                            <div className="HistoryList-Row" key={match.id}>
-                                <span>
-                                    <span style={{marginRight: '10px'}}>{match.awayTeam?.name}</span>
-                                    <strong>
-                                        {getScore(match.goals, false)} - {getScore(match.goals, true)}
-                                    </strong>
-                                    <span style={{marginLeft: '10px'}}>{match.homeTeam?.name}</span>
-                                </span>
-                            </div>
-                        ))}
-
-                        {!loading && leagueRoundHistory.length === 0 && (
+                        {loading ? (
+                            <p>Loading...</p>
+                        ) : leagueRoundHistory.length > 0 ? (
+                            <HistoryList matches={leagueRoundHistory} />
+                        ) : (
                             <p>No matches found. Select rounds and click Search.</p>
                         )}
                     </div>
