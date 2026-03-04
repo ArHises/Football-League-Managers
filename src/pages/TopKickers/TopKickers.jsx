@@ -64,7 +64,7 @@ export const TopKickers = () => {
         <div className="TopKickers page">
             <h2>Top Kickers</h2>
             {
-                (currentLeague !== null && currentLeague !== -1 && !loading) && (
+                (currentLeague !== null && currentLeague !== -1 && !loading) ? (
                     getTopThreeScorers(kickers).map((kicker) => (
                         <div className="Kicker" key={kicker.id}>
                             <p>
@@ -73,7 +73,7 @@ export const TopKickers = () => {
                             </p>
                         </div>
                     ))
-                )
+                ) : <h3>Please select a league from the menu.</h3>
             }
         </div>
     );
