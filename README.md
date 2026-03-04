@@ -1,50 +1,42 @@
-    src/
-    │
-    ├── assets/                 # Static assets (images, icons)
-    │
-    ├── components/             # Reusable UI components
-    │   ├── common/
-    │   │   ├── Navbar.jsx          # Navigation between the 4 main pages
-    │   │   ├── LeagueSelector.jsx  # Dropdown to select league (required on all pages)
-    │   │   └── Layout.jsx          # Wraps the app with Navbar and LeagueSelector
-    │   │
-    │   ├── table/
-    │   │   ├── StandingsTable.jsx  # The main league table
-    │   │   ├── TableRow.jsx        # Individual row (handles logic for Blue/Red colors)
-    │   │   └── TeamDetails.jsx     # Expands to show Squad & Team History
-    │   │
-    │   ├── history/
-    │   │   ├── RoundFilter.jsx     # Inputs for Min/Max round filtering
-    │   │   └── MatchList.jsx       # Displays list of matches (Arsenal 3 – 2 Liverpool)
-    │   │
-    │   └── stats/
-    │       └── StatCard.jsx        # Component to display individual stats (Top scorers, etc.)
-    │
-    ├── context/
-    │   └── LeagueContext.jsx   # Manages the globally selected League ID
-    │
-    ├── hooks/
-    │   ├── useFetchData.js     # Generic hook for API calls
-    │   └── useLeagueStats.js   # Logic to process raw data into stats (Goals per half, etc.)
-    │
-    ├── pages/                  # The 4 main pages requested
-    │   ├── TablePage.jsx       # "טבלאות"
-    │   ├── HistoryPage.jsx     # "היסטוריית תוצאות"
-    │   ├── TopScorersPage.jsx  # "טבלת המבקיעים המובילים"
-    │   └── GeneralStatsPage.jsx# "סטטיסטיקה כללית"
-    │
-    ├── services/
-    │   └── api.js              # Centralized Axios/Fetch functions for all endpoints:
-    │                           # getLeagues, getTeams, getHistory, getRound, getSquad
-    │
-    ├── utils/
-    │   ├── calculations.js     # Pure logic functions:
-    │   │                       # - Calculate Points (Win=3, Draw=1)
-    │   │                       # - Calculate Goal Diff
-    │   │                       # - Sort Table (Points -> GD -> Name)
-    │   │                       # - Find Earliest/Latest Goal
-    │   └── formatters.js       # Helper to format the match string "{home} {score} - {score} {away}"
-    │
-    ├── App.jsx                 # Routes setup (React Router)
-    ├── index.css               # Global styles
-    └── main.jsx                # Entry point
+# Soccer React Project
+
+A small soccer stats web app built with **React** and **Vite**. The app lets you pick a league and browse league-related data across multiple pages.
+
+## Tech stack
+
+- React
+- Vite
+- React Router
+- Axios
+
+## Pages / features
+
+- **Home**: league view (table / teams / players depending on the current UI)
+- **League round history**: match history results
+- **Top kickers**: top scorers / kickers list
+- **Statistic**: stats view
+
+## Getting started
+
+1. Install dependencies
+2. Start the dev server
+
+## Available scripts
+
+- `npm run dev` — start development server
+- `npm run build` — production build
+- `npm run preview` — preview the production build
+- `npm run lint` — run ESLint
+
+## Project structure (high level)
+
+- `src/App.jsx` — routes and shared layout
+- `src/components/` — reusable UI components (league selector, tables, lists, context)
+- `src/pages/` — route pages (Home, HistoryResult, TopKickers, Statistic)
+- `src/services/api.js` — API layer
+
+## Creators
+
+- Roman Kov
+- Dalia Hen
+
